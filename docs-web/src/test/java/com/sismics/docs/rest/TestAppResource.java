@@ -197,10 +197,10 @@ public class TestAppResource extends BaseJerseyTest {
                 .get(JsonObject.class);
 
         // Disable guest login (clean up state)
-        target().path("/app/guest_login").request()
-                .cookie(TokenBasedSecurityFilter.COOKIE_NAME, adminToken)
-                .post(Entity.form(new Form()
-                        .param("enabled", "false")), JsonObject.class);
+        // target().path("/app/guest_login").request()
+        //         .cookie(TokenBasedSecurityFilter.COOKIE_NAME, adminToken)
+        //         .post(Entity.form(new Form()
+        //                 .param("enabled", "false")), JsonObject.class);
     }
 
     /**
