@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'mvn test -Dmaven.test.failure.ignore=true'
+                sh 'mkdir -p "${WORKSPACE}/.ci-data" && mvn test -Dmaven.test.failure.ignore=true -Ddocs.home="${WORKSPACE}/.ci-data"'
             }
         }
         stage('PMD') {
