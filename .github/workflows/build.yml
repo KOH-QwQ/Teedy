@@ -23,9 +23,9 @@ jobs:
           cache-dependency-path: docs-web/src/main/webapp/package-lock.json
       - name: Install test dependencies
         run: |
-          sudo apt-get update
+          sudo apt-get update -qq
           sudo apt-get -y -q --no-install-recommends install ffmpeg mediainfo tesseract-ocr
-          sudo npm install -g grunt-cli
+          command -v grunt >/dev/null 2>&1 || npm install -g grunt-cli
       - name: Build with Maven
         run: mvn --batch-mode -Pprod clean install
       - name: Upload war artifact
