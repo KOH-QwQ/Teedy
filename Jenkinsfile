@@ -18,7 +18,7 @@ pipeline {
         }
         stage('PMD') {
             steps {
-                sh 'mvn pmd:pmd'
+                sh 'mvn install -DskipTests && mvn pmd:pmd'
             }
         }
         stage('JaCoCo') {
