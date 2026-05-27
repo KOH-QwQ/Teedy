@@ -33,7 +33,12 @@ pipeline {
         }
         stage('Site') {
             steps {
-                sh 'mvn jacoco:report site'
+                sh '''
+                    mvn jacoco:report site
+                    cp -r docs-core/target/site target/site/docs-core
+                    cp -r docs-web-common/target/site target/site/docs-web-common
+                    cp -r docs-web/target/site target/site/docs-web
+                '''
             }
         }
         stage('Package') {
